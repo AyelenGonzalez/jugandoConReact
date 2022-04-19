@@ -1,0 +1,31 @@
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav__logo{
+    width: 5rem;
+    height: auto;
+}
+
+.nav__brand{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+    text-decoration: none;
+    color: saddlebrown;
+}
+
+.nav__list{
+    margin-right: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    list-style: none;
+}
+
+.nav__item{
+    color: saddlebrown;
+    text-decoration: none;
+}
