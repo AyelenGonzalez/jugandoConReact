@@ -6,7 +6,7 @@ const NavBar = ({title, children}) => {
     
     return (
         <>
-            <div className='nav'>
+            <div className='nav sticky-top bg-light'>
                 <a className='nav__brand' href="#"><img className='nav__logo' src={logo1} alt="LOGO" /><h1>{title}</h1></a>
                 
                 <ul className='nav__list'>
