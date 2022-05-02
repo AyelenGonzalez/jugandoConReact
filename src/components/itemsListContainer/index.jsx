@@ -1,16 +1,22 @@
-import React from 'react';
-import './itemsListContainer.css'
+import React, { useEffect, useState } from 'react';
 import ItemCount from '../itemCount/Itemcount';
-function ItemBox({greetings}){
-    function addToCart () {
-         console.log('producto agregado');
-    }
+import ItemList from '../ItemList/ItemList';
+import getData from '../../Services/getData';
 
+function ItemBox({greetings}){
+    const [products, setProducts] = useState ([]);
+
+    useEffect(() => {
+        getData.then((res) => setProducts(res));
+        getData.catch((error) => alert(`${error}`));
+     }, []);
+     
     return (
-        <div className='box'>
-            <h3>{greetings}</h3>
-            <ItemCount initial={0} stock={9} onAdd={addToCart} />
-        </div>
+        <>
+             <h3 className='text-center'>{greetings}</h3>
+             <ItemCount initial={0} stock={9}/>
+             <ItemList products={products} />
+        </>
     );
 }
 
