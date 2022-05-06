@@ -26,6 +26,11 @@
 }
 
 .nav__item{
+    font-size: 1.2em;
     color: saddlebrown;
     text-decoration: none;
+}
+
+.nav__active{
+    font-weight: bold;
 }

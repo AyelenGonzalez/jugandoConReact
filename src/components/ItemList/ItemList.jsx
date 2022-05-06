@@ -6,7 +6,7 @@ const ItemList = ({products}) => {
             <div className="row d-flex justify-content-center gap-5">
                 {products.map((product) => {
                     return (
-                    <Item key={product.id} title={product.nombre} price={product.precio} image={product.imagen}/>
+                    <Item key={product.id} id={product.id} title={product.nombre} price={product.precio} image={product.imagen}/>
                     );
                 })}
             </div>

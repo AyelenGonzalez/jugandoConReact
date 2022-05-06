@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 function ItemCount ({stock, initial}) {
 
      const [count, setCount] = useState(initial);
@@ -20,13 +19,13 @@ function ItemCount ({stock, initial}) {
      const onAdd = () => {
         alert('producto agregado');
    }
-
+    
      return (
          <div className="d-flex flex-column justify-content-center">
              <div className="d-flex justify-content-center">
                  <button onClick={()=> removeItem ()}> - </button>
 
-                 <input readOnly value={count} />
+                 <input className='text-center' readOnly value={count} />
                  
                  <button onClick={()=> addItem ()}> + </button>
              </div>

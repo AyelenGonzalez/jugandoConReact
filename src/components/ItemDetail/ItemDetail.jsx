@@ -1,15 +1,16 @@
-import ItemCount from "../itemCount/Itemcount";
+import ItemCount from '../itemCount/Itemcount';
+import React from 'react';
 
-const ItemDetail = ({image, name, price}) =>{
+function ItemDetail ({item}) {
     return (
-            <div className="d-flex justify-content-around">
+            <div className="p-3 d-flex justify-content-around flex-wrap">
                 <div>
-                    <img src={require(`${image}`)} alt="" />
+                    <img src={item.imagen}  alt="IMÁGEN DE PRODUCTO" />
                 </div>
-                <div className="d-flex flex-column justify-conten-center align-items-center">
-                    <h3 className="text-center">{name}</h3>
-                    <p className="text-center">$ {price}</p>
-                    <ItemCount initial={1} stock={10} />
+                <div className="pt-5 d-flex flex-column gap-3">
+                    <h3 className="text-center">{item.nombre}</h3>
+                    <p className="text-center">$ {item.precio}</p>
+                    <ItemCount stock={item.stock} initial={1} />
                 </div>
             </div>
     );

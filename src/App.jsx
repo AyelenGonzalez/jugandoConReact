@@ -1,7 +1,8 @@
 import NavBar from './components/NavBar/NavBar';
-// import ItemBox from './components/itemsListContainer';
+import ItemBox from './Pages/itemsListContainer';
 import CartWidget from './components/cartWidget';
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import ItemDetailContainer from './Pages/ItemDetailContainer/ItemDetailContainer';
+import {Route, Routes} from 'react-router-dom';
 
 function App() {
   return (
@@ -9,13 +10,16 @@ function App() {
       <NavBar title = 'Sahumá'> 
            <CartWidget />
       </NavBar>
-      <header className="App-header bg-secondary">
-        {/* {<ItemBox greetings ='¡Bienvenidos a Sahumá!' />} */}
-        <ItemDetailContainer />
-      </header>
-      
+        <Routes>
+          <Route path='/' element={<ItemBox greetings ='¡Bienvenidos a Sahumá!' />} />
+          <Route path='/category/:categoryId' element={<ItemBox greetings ='¡Bienvenidos a Sahumá!' />} />
+          <Route path='/item/:id' element={<ItemDetailContainer />} />
+        </Routes>
+        
+        
     </div>
   );
 }
 
 export default App;
+ 
