@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function ItemCount ({stock, initial}) {
+function ItemCount ({stock, initial, onAdd}) {
 
      const [count, setCount] = useState(initial);
 
@@ -15,10 +15,6 @@ function ItemCount ({stock, initial}) {
              setCount(count -1)
          }
      }
-
-     const onAdd = () => {
-        alert('producto agregado');
-   }
     
      return (
          <div className="d-flex flex-column justify-content-center">
@@ -29,7 +25,7 @@ function ItemCount ({stock, initial}) {
                  
                  <button onClick={()=> addItem ()}> + </button>
              </div>
-             <button className='d-flex align-self-center' onClick={() => (count <= stock) && onAdd() }>Agregar al carrito</button>
+             <button className='d-flex align-self-center btn btn-primary mt-3' onClick={() => (count <= stock) && onAdd(count) }>Agregar al carrito</button>
          </div>
      )
 }
