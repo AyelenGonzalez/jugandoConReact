@@ -7,19 +7,17 @@ import {Route, Routes} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <NavBar title = 'Sahumá'> 
-           <CartWidget />
-      </NavBar>
-        <Routes>
-          <Route path='/' element={<ItemBox greetings ='¡Bienvenidos a Sahumá!' />} />
-          <Route path='/cart' element={<Cart/>} />
-          <Route path='/category/:categoryId' element={<ItemBox greetings ='¡Bienvenidos a Sahumá!' />} />
-          <Route path='/item/:id' element={<ItemDetailContainer />} />
-        </Routes>
-        
-        
-    </div>
+            <div className="App">
+                  <NavBar title = 'Sahumá'>
+                      <CartWidget />
+                  </NavBar>
+                    <Routes>
+                      <Route path='/' element={<ItemBox greetings ='¡Bienvenidos a Sahumá!' />} />
+                      <Route path='/cart' element={<Cart/>} />
+                      <Route path='/category/:categoryId' element={<ItemBox greetings ='¡Bienvenidos a Sahumá!' />} />
+                      <Route path='/item/:id' element={<ItemDetailContainer />} />
+                    </Routes>
+            </div>
   );
 }
 

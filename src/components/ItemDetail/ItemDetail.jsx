@@ -1,14 +1,18 @@
 import ItemCount from '../itemCount/Itemcount';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useCartContext } from '../../Context/CartContext';
 
 function ItemDetail ({item}) {
+
+    const {addItem} = useCartContext();
 
     const[productsLot, setProductsLot] = useState(null);
 
     function addHandler(quantityToAdd) {
         setProductsLot(quantityToAdd);
-    }
+        addItem(item, quantityToAdd);
+    };
 
     return (
             <div className="p-3 d-flex justify-content-around flex-wrap">

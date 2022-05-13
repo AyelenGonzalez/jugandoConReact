@@ -1,9 +1,10 @@
 import React from 'react';
 import cartLogo from './logoCarrito.jpg';
+import { Link } from 'react-router-dom';
 function CartWidget(){
     return (
         <>
-            <a className='p-3' href='#'><img src={cartLogo} alt="CARRITO" /></a>
+            <Link className='p-3' to='/cart'><img src={cartLogo} alt="CARRITO" /></Link>
         </>
     );
 }
