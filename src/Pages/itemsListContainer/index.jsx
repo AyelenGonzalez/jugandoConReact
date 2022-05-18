@@ -26,7 +26,7 @@ productos.push(new Producto(8, 'Linea Premium Triple combinado x 5 "Noche"', `Co
 productos.push(new Producto(9, 'Linea Premium Triple combinado X 5 "Dia"', `Combinados`, `../image/sahume9.jpg`, 1000, 30));
 
 function getProducts(category){
-    const myPromise = new Promise((res, rej)=>{
+    const myPromise = new Promise((res)=>{
 
     const productsFiltered = category ? productos.filter(p => p.category === category) : productos;
 
@@ -38,6 +38,7 @@ function getProducts(category){
 }
 
 function ItemBox({greetings}){
+
     const [products, setProducts] = useState ([]);
     const {categoryId} = useParams();
 

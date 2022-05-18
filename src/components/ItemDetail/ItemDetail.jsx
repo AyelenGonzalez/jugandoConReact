@@ -1,33 +1,48 @@
 import ItemCount from '../itemCount/Itemcount';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../../Context/CartContext';
+import { Spinner } from 'react-bootstrap';
 
 function ItemDetail ({item}) {
 
-    const {addItem} = useCartContext();
+    const [isLoading, setIsLoading] = useState(true);
 
-    const[productsLot, setProductsLot] = useState(null);
+    useEffect(() => {
+        if(item.imagen){
+            setIsLoading(false)
+        }
+    }, [item]);
+
+    const {addItem, unitsLot} = useCartContext();
+
+    const[productsLot, setProductsLot] = useState(0);
 
     function addHandler(quantityToAdd) {
+        if(quantityToAdd + unitsLot(item.id) > item.stock){
+            const addOk = item.stock - unitsLot(item.id);
+            return alert(`Solamente podés agregar ${addOk} productos.`);
+        }
         setProductsLot(quantityToAdd);
         addItem(item, quantityToAdd);
     };
 
     return (
-            <div className="p-3 d-flex justify-content-around flex-wrap">
-                <div>
-                    <img src={item.imagen}  alt="IMÁGEN DE PRODUCTO" />
+            <div className="p-3 d-flex justify-content-around align-items-center flex-wrap">
+                <div classname="d-flex justify-content-center align-items-center">
+                    {isLoading ? 
+                    <Spinner animation="border"></Spinner> : 
+                    <img src={item.imagen}  alt="IMÁGEN DE PRODUCTO" />}
                 </div>
                 <div className="pt-5 d-flex flex-column gap-3">
                     <h3 className="text-center">{item.nombre}</h3>
                     <p className="text-center">$ {item.precio}</p>
                     <div className='d-flex flex-column justify-content-center'>
-                        {productsLot ?
-                            <button className='btn'>
+                        {productsLot === 0 ?
+                        (<ItemCount stock={item.stock} initial={1} onAdd={addHandler} />) :
+                            (<button className='btn'>
                                 <Link className='text-center btn btn-primary' to='/cart'>Ir al carrito ({productsLot} items)</Link>
-                            </button> :
-                            <ItemCount stock={item.stock} initial={1} onAdd={addHandler} />
+                            </button>)
                         }
                     </div>
                     

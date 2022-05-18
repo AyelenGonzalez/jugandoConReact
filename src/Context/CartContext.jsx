@@ -32,8 +32,33 @@ const CartContextProvider = ({children})=>{
         setCartList(cartList.filter((item) => item.id !== id));
     };
 
+    const unitsLot = (id) => {
+        const foundInCart = cartList.find((item) => item.id === id);
+        return foundInCart ? foundInCart.quantity : 0;
+    };
+
+    const removeUnit = (id) => {
+        if(unitsLot(id) === 1){
+            return removeItem(id);
+        }
+        setCartList(
+            cartList.map((product) =>
+            product.id === id ?
+            {...product, quantity: product.quantity - 1} :
+            product)
+        );
+    };
+
+    const totalLot = () => {
+        return cartList.reduce((total, item) => total + item.quantity, 0);
+    };
+
+    const totalPrice = () => {
+        return cartList.reduce((total, item) => total + item.quantity * item.precio, 0);
+    };
+
     return(
-        <CartContext.Provider value={{cartList, addItem, clear, removeItem}}>
+        <CartContext.Provider value={{cartList, addItem, clear, removeItem, unitsLot, removeUnit, totalLot, totalPrice}}>
             {children}
         </CartContext.Provider>
     );

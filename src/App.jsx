@@ -4,12 +4,14 @@ import CartWidget from './components/cartWidget';
 import Cart from './Pages/Cart/Cart';
 import ItemDetailContainer from './Pages/ItemDetailContainer/ItemDetailContainer';
 import {Route, Routes} from 'react-router-dom';
+import {useCartContext} from './Context/CartContext';
 
 function App() {
+  const {totalLot} = useCartContext();
   return (
             <div className="App">
                   <NavBar title = 'Sahumá'>
-                      <CartWidget />
+                      {totalLot() > 0 && <CartWidget />}
                   </NavBar>
                     <Routes>
                       <Route path='/' element={<ItemBox greetings ='¡Bienvenidos a Sahumá!' />} />

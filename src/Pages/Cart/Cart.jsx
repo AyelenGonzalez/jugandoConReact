@@ -4,7 +4,7 @@ import CartItem from "../../components/CartItem/CartItem";
 
 function Cart() {
 
-    const {cartList, clear} = useCartContext();
+    const {cartList, clear, totalPrice} = useCartContext();
 
     return(
         <div className="container-fluid mt-3 pb-3">
@@ -15,6 +15,7 @@ function Cart() {
                 {cartList.length > 0 ?(
                     <>
                         <button className="btn btn-danger mt-3" onClick={() => clear()}>Vaciar Carrito</button>
+                        <h1>PRECIO TOTAL: ${parseInt(totalPrice())}</h1>
                     </>
                 ) : (
                     <h2 className="text-center mt-5">El Carrito está vacío</h2>
