@@ -38,12 +38,12 @@ function ItemDetail ({item}) {
                     <h3 className="text-center">{item.nombre}</h3>
                     <p className="text-center">$ {item.precio}</p>
                     <div className='d-flex flex-column justify-content-center'>
-                        {productsLot === 0 ?
-                        (<ItemCount stock={item.stock} initial={1} onAdd={addHandler} />) :
+                        <ItemCount stock={item.stock} initial={1} onAdd={addHandler} />
+                        {productsLot > 0 ? 
                             (<button className='btn'>
-                                <Link className='text-center btn btn-primary' to='/cart'>Ir al carrito ({productsLot} items)</Link>
-                            </button>)
-                        }
+                                <Link className='text-center btn btn-primary' to='/cart'>Ir al carrito ({unitsLot(item.id)}) items</Link>
+                            </button>) : 
+                            <></>}
                     </div>
                     
                 </div>
