@@ -5,6 +5,7 @@ import Cart from './Pages/Cart/Cart';
 import ItemDetailContainer from './Pages/ItemDetailContainer/ItemDetailContainer';
 import {Route, Routes} from 'react-router-dom';
 import {useCartContext} from './Context/CartContext';
+import Checkout from './Pages/Checkout/Checkout';
 
 function App() {
   const {totalLot} = useCartContext();
@@ -18,6 +19,7 @@ function App() {
                       <Route path='/cart' element={<Cart/>} />
                       <Route path='/category/:categoryId' element={<ItemBox greetings ='¡Bienvenidos a Sahumá!' />} />
                       <Route path='/item/:id' element={<ItemDetailContainer />} />
+                      <Route path='/checkout' element={<Checkout />} />
                     </Routes>
             </div>
   );

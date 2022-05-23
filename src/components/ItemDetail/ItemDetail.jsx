@@ -29,7 +29,7 @@ function ItemDetail ({item}) {
 
     return (
             <div className="p-3 d-flex justify-content-around align-items-center flex-wrap">
-                <div classname="d-flex justify-content-center align-items-center">
+                <div className="d-flex justify-content-center align-items-center">
                     {isLoading ? 
                     <Spinner animation="border"></Spinner> : 
                     <img src={item.imagen}  alt="IMÁGEN DE PRODUCTO" />}
