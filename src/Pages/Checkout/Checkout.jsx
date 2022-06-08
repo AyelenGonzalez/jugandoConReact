@@ -77,6 +77,7 @@ export const Checkout = () => {
                 <h4 className='text-center text-success'>Compra finalizada con éxito</h4>
                 <hr width={100} />
                 <h5 className='text-center'>Su Código de compra es: <span className='text-info'>{orderId}</span></h5>
+                <h6>¡Gracias por su compra!</h6>
                 <Link to="/"><button className='btn btn-primary'>Regresar a la tienda</button></Link>
             </div>)}
         </div>
